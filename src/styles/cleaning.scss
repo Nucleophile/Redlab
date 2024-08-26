@@ -31,12 +31,13 @@
       display: flex;
       flex-direction: column;
       transform: translateX(-100%);
-      transition: transform $trans-dur * 2;
+      transition: transform $slider-trans-dur;
 
       @include media(to_laptop) {
         position: absolute;
         z-index: 2;
         min-height: 100%;
+        transition-duration: $trans-dur;
 
         &.active {
           transform: translateX(0);
@@ -80,7 +81,7 @@
         left: 0;
         transform: translateX(-100%);
         transition-property: left, transform;
-        transition-duration: $trans-dur * 2;
+        transition-duration: $slider-trans-dur;
 
         &::before {
           transform: rotate(45deg);
@@ -120,7 +121,7 @@
       flex-grow: 1;
       position: relative;
       transform-origin: 0 0;
-      transition: transform $trans-dur * 2;
+      transition: transform $slider-trans-dur;
 
       @include media(to_laptop) {
         aspect-ratio: 1200 / 800;
@@ -137,17 +138,29 @@
       top: 0;
       width: 0;
       overflow: hidden;
-      transition: width $trans-dur * 2 $trans-dur * 2;
+      transition: width $slider-trans-dur $slider-trans-dur;
+
+      @include media(to_laptop) {
+        transition-delay: $trans-dur + $slider-trans-dur;
+      }
 
       &.active {
         position: relative;
         z-index: 1;
         width: 100%;
-        transition: width $trans-dur * 2;
+        transition: width $slider-trans-dur;
 
         .cleaning__slider-img {
           transform: scale(1);
-          transition: transform $trans-dur * 2;
+          transition: transform $slider-trans-dur;
+        }
+
+        @include media(to_laptop) {
+          transition-delay: $trans-dur;
+
+          .cleaning__slider-img {
+            transition-delay: $trans-dur;
+          }
         }
       }
     }
@@ -157,7 +170,11 @@
       height: 100%;
       object-fit: cover;
       transform: scale(1.5);
-      transition: transform $trans-dur * 2 $trans-dur * 2;
+      transition: transform $slider-trans-dur $slider-trans-dur;
+
+      @include media(to_laptop) {
+        transition-delay: $trans-dur + $slider-trans-dur;
+      }
     }
   }
 
@@ -179,7 +196,11 @@
   &-item {
     position: absolute;
     opacity: 0;
-    transition: opacity $trans-dur $trans-dur * 2;
+    transition: opacity $trans-dur $slider-trans-dur;
+
+    @include media(to_laptop) {
+      transition-delay: $trans-dur + $slider-trans-dur;
+    }
 
     .cleaning__slider-slide.active & {
       opacity: 1;
