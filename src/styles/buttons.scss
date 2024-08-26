@@ -1,0 +1,63 @@
+.btn-order-main {
+  width: $btn-order-size;
+  height: $btn-order-size;
+  border-radius: $btn-order-size;
+  position: fixed;
+  bottom: 20px;
+  left: 50%;
+  margin-left: -97.5px;
+  font-size: 18px;
+  line-height: 24px;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.075em;
+  border: none;
+  color: #fff;
+  background: none;
+  transition: transform, bottom;
+  transition-duration: $trans-dur;
+  cursor: pointer;
+
+  &:hover {
+    .btn-order-main__text {
+      transform: scale(1);
+    }
+  }
+
+  .is-scrolled-to-cleaning__slider & {
+    bottom: -$btn-order-size;
+  }
+
+  &__text-wrapper {
+    display: block;
+    width: 100%;
+    height: 100%;
+    border-radius: $btn-order-size;
+    animation: btn-order-main-animation 20s linear infinite;
+  }
+
+  &__text {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+    border-radius: $btn-order-size;
+    padding: 40px;
+    position: relative;
+    background: $primary;
+    transition: transform $trans-dur;
+
+    .is-scrolled & {
+      transform: scale(.75);
+    }
+  }
+}
+
+@keyframes btn-order-main-animation {
+  0% {
+    transform: rotate(15deg);
+  }
+  100% {
+    transform: rotate(375deg);
+  }
+}

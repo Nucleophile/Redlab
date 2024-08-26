@@ -1,0 +1,47 @@
+.hero {
+  margin-bottom: 70px;
+
+  @include media(from_laptop) {
+    display: flex;
+    min-height: 100vh;
+
+    &__text {
+      width: 50%;
+      order: 1;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+
+    &__img {
+      width: 50%;
+      object-fit: cover;
+    }
+  }
+
+  &__img {
+    margin: 0 auto;
+  }
+
+  &__text {
+    padding: $header-padd-y * 2 + max($menu-btn-size, $locations-height) $grid-gutter;
+
+    @include media(laptop) {
+      padding-left: 50px;
+      padding-right: 50px;
+    }
+
+    @include media(desktop) {
+      padding-left: 155px;
+      padding-right: 155px;
+    }
+  }
+
+  &__heading {
+    margin-bottom: 30px;
+
+    @include media(to_laptop) {
+      margin-top: 50px;
+    }
+  }
+}

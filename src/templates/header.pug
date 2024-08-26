@@ -1,0 +1,23 @@
+header.header
+  .header__content
+    .header__logo-part
+      a.header__logo(href=""): img(src="./images/svg/logo.svg")
+      ul.locations
+        li: span.locations__link.locations__link--active(href="") Дом
+        li: a.locations__link(href="") Офис
+    .visible-xl
+      ul.sub-nav
+        each val in ["После ремонта", "Генеральная уборка", "Регулярная уборка", "Мойка окон"]
+          li: a.sub-nav__link(href="")= val
+    .header__menu-part
+      .hidden-xs
+        include phone
+      .menu.toggle-class-target
+        button.menu-btn.toggle-class-trigger
+        .menu-sidebar.header__menu-sidebar
+          nav.nav
+            ul.menu-list.header__menu-list
+              each val in ["Услуги", "Цены", "Отзывы", "Вопросы", "Блог"]
+                li.menu-item: a.menu-link(href="")= val
+          .visible-xs
+            include phone

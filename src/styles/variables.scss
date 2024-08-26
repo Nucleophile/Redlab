@@ -1,0 +1,31 @@
+// Various dimentions
+$grid-gutter: 15px;
+$header-padd-y: 16px;
+$locations-height: 36px;
+$locations-line-height: 20px;
+$location-height: 32px;
+$menu-btn-size: 32px;
+$menu-btn-line-height: 2px;
+$menu-btn-between-line-space: 6px;
+$btn-order-size: 195px;
+
+// Breakpoints
+$tablet: 768px;
+$laptop: 1024px;
+$desktop: 1380px;
+
+// Containers
+$tablet-container: 720px + $grid-gutter * 2;
+$laptop-container: 980px + $grid-gutter * 2;
+$desktop-container: 1320px + $grid-gutter * 2;
+
+// Colors
+$primary: #5a30f0;
+$secondary: #efebfe;
+$black: #404040;
+$grey-1: #636c81;
+$grey-8: #e2e8f0;
+$grey-10: #f3f6fb;
+
+// Transitions
+$trans-dur: .3s;

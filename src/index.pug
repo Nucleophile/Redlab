@@ -1,0 +1,111 @@
+doctype html
+html(lang="ru")
+  head
+    meta(charset='UTF-8')
+    meta(name="viewport" content="width=device-width, initial-scale=1.0")
+    title Уберем
+    link(href="styles.scss" rel="stylesheet")
+    script(src="index.js" defer="defer")
+  body
+    include templates/header
+    main
+      section.hero
+        .hero__text
+          h1.h1.hero__heading Уборка квартир в Киеве
+          p Мы уберем у вас дома или в офисе. Наведем чистоту после ремонта и проведем генеральную уборку.
+        img.hero__img(srcset="./images/hero.jpg, ./images/hero@2x.jpg 2x" src="./images/hero.jpg" alt="Уборка комнаты")
+      section.features
+        .container
+          ul.features__list#features-list
+            -
+              var features = {
+                staff: {
+                  h3: "Тщательно отобранный персонал",
+                  p: "Не нужно тратить время, силы и ресурсы на разме- щение вакансий, проведе- ние собеседований, про- верку кандидатов на должность уборщицы. За счет больших объемов мы можем сделать это эффективнее."
+                },
+                cleaning_agents: {
+                  h3: "Качественная эко&#8209;химия",
+                  p: "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Iusto, doloribus. Sit ducimus numquam laboriosam accusamus hic itaque expedita, nisi vitae."
+                },
+                quality: {
+                  h3: "Контролируем качество",
+                  p: "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Animi, nesciunt ea explicabo beatae inventore sapiente."
+                },
+                "24_7": {
+                  h3: "Работаем круглосуточно",
+                  p: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Esse minima ea officia, libero quasi quibusdam unde fugiat? Iure."
+                }
+              }
+            each val, key in features
+              li.features__item
+                .features__main-info
+                  h3.h3!= val.h3
+                  img.features__img(src="images/features/" + key + ".png")
+                .features__additional-info= val.p
+      section.cleaning
+        .container
+          .cleaning__heading-part
+            h2.h2 Как мы убираем
+            p.cleaning__text Клинер приезжает в назначенное время со всем необходимым и сразу приступает к делу. Вам остаётся только оценить результат.
+          #content-width-and-pos-example
+        -
+          var slides = {
+            kitchen: {
+              img: "kitchen",
+              name: "Кухня",
+              cleaningList: {
+                hood: "Чистим фасад вытяжки",
+                stove: "Чистим плиту",
+                sink: "Моем раковину",
+                floor: "Моем пол"
+              }
+            },
+            bathroom: {
+              img: "bathroom",
+              name: "Ванная",
+              cleaningList: {
+                toilet: "Чистим унитаз",
+                bath: "Моем ванну",
+                mirror: "Моем зеркало"
+              }
+            },
+            room: {
+              img: "kitchen",
+              name: "Комнаты",
+              cleaningList: {
+                hood: "Чистим фасад вытяжки",
+                stove: "Чистим плиту",
+                sink: "Моем раковину",
+                floor: "Моем пол"
+              }
+            },
+            hall: {
+              img: "bathroom",
+              name: "Прихожая",
+              cleaningList: {
+                toilet: "Чистим унитаз",
+                bath: "Моем ванну",
+                mirror: "Моем зеркало"
+              }
+            }
+          }
+        .cleaning__slider#cleaning__slider
+          button.toggle-class-trigger.cleaning__slider-sidebar-show.visible-xs.visible-sm(data-target="cleaning__slider-sidebar")
+          .cleaning__slider-sidebar.menu-sidebar.toggle-class-target#cleaning__slider-sidebar
+            button.toggle-class-trigger.cleaning__slider-sidebar-hide.visible-xs.visible-sm
+            h4.cleaning__slider-heading Как мы убираем
+            .cleaning__slider-sidebar-list-wrapper
+              ul.cleaning__slider-sidebar-list.menu-list
+                each slide, key in slides
+                  li.cleaning__slider-sidebar-item.menu-item
+                    button.cleaning__slider-sidebar-btn.menu-link(data-slide-id=key class={active: key === "kitchen"})= slide.name
+          .cleaning__slider-image-block#cleaning__slider-image-block
+            each slide, key in slides
+              .cleaning__slider-image-wrapper.cleaning__slider-slide(class={active: key === "kitchen"} id=key)
+                img.cleaning__slider-img(srcset="./images/"+ slide.img + ".jpg, ./images/"+ slide.img + "@2x.jpg 2x"  src="./images/"+ slide.img + ".jpg" alt=slide.name)
+                ul.cleaning-list
+                  each cleaningText, key in slide.cleaningList
+                    li.cleaning-item(class=key)
+                      button.cleaning-item__btn
+                      .cleaning-item__tooltip= cleaningText
+    button.btn-order-main#btn-order-main: span.btn-order-main__text-wrapper: span.btn-order-main__text Заказать уборку
