@@ -19,7 +19,6 @@ document.querySelectorAll(".toggle-class-trigger").forEach((el) => {
   }
 
   function removeDocumentClickListener() {
-    console.log("remove");
     document.removeEventListener("click", handleDocumentClick);
   }
 });
