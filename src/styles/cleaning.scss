@@ -74,7 +74,7 @@
       }
 
       &-show {
-        z-index: 2;
+        z-index: 1;
         left: 0;
         transform: translateX(-100%);
         transition-property: left, transform;
@@ -216,7 +216,7 @@
     }
 
     &.toilet {
-      top: 90%;
+      top: 82%;
       left: 58%;
     }
 
@@ -267,6 +267,7 @@
       font-size: 13px;
       line-height: 17px;
       position: absolute;
+      z-index: 1;
       left: 50%;
       bottom: 100%;
       margin-bottom: 8px;
