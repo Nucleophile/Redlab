@@ -11,6 +11,12 @@
   transition: background-color, box-shadow;
   transition-duration: $trans-dur;
 
+  @include media(to_laptop) {
+    box-shadow: 0px 2px 14px 0px rgba(0, 0, 0, 0.07);
+    padding-left: $grid-gutter;
+    padding-right: $grid-gutter;
+  }
+
   .is-scrolled & {
     background: #fff;
     box-shadow: 0px 2px 14px 0px rgba(0, 0, 0, 0.07);
@@ -18,10 +24,6 @@
     .locations {
       border-color: $grey-8;
     }
-  }
-
-  @include media(to_laptop) {
-    box-shadow: 0px 2px 14px 0px rgba(0, 0, 0, 0.07);
   }
 
   &__content {
